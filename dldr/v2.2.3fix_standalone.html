@@ -1,0 +1,993 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no">
+<style>
+:root {
+    --soultpl-back-color: white;
+    --soultpl-fore-color: black;
+    --soultpl-back-color-dim: white;
+    --soultpl-back-color-dim2: white;
+    --soultpl-link-color: blue;
+    --soultpl-link-visited-color: purple;
+    font-size: 16px;
+    font-family: sans-serif;
+    background: var(--soultpl-back-color);
+    color: var(--soultpl-fore-color);
+}
+
+* {
+    font-family: inherit;
+    color: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+*:not(h1, h2, h3, h4, h5, h6, small, big, rt, sup, sub) {
+    font-size: inherit;
+}
+
+*:disabled,
+.disabled {
+    opacity: 0.5;
+}
+
+.day {
+    background: white;
+    color: black;
+}
+
+.soulbox,
+td,
+input,
+select,
+keygen,
+textarea,
+button,
+code,
+fieldset {
+    background: var(--soultpl-back-color-dim);
+}
+
+th {
+    background: var(--soultpl-back-color-dim2);
+}
+
+.soulbox,
+td,
+th,
+input,
+select,
+keygen,
+textarea,
+button,
+code,
+fieldset {
+    border: 1px solid var(--soultpl-fore-color);
+}
+
+.soulbox,
+td,
+th,
+input,
+select,
+keygen,
+textarea,
+button,
+code,
+fieldset,
+mark {
+    border-radius: 8px;
+}
+
+img {
+    max-width: 100%;
+}
+
+*:not(meter, .day) {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.soulbox,
+td,
+th,
+input,
+select,
+keygen,
+textarea,
+code {
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+mark {
+    padding: 2px;
+    margin: 2px;
+}
+
+button,
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    padding: 4px 8px;
+}
+
+a:link {
+    text-decoration: none;
+    color: var(--soultpl-link-color);
+}
+
+a:visited {
+    color: var(--soultpl-link-visited-color);
+}
+
+a:link:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 8px 0;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+blockquote {
+    margin: 8px 0 0 30px;
+}
+
+code {
+    display: inline-block;
+}
+
+.§0 {
+    color: #000
+}
+
+.§1 {
+    color: #00a
+}
+
+.§2 {
+    color: #0a0
+}
+
+.§3 {
+    color: #0aa
+}
+
+.§4 {
+    color: #a00
+}
+
+.§5 {
+    color: #a0a
+}
+
+.§6 {
+    color: #fa0
+}
+
+.§7 {
+    color: #aaa
+}
+
+.§8 {
+    color: #555
+}
+
+.§9 {
+    color: #55f
+}
+
+.§a {
+    color: #5f5
+}
+
+.§b {
+    color: #5ff
+}
+
+.§c {
+    color: #f55
+}
+
+.§d {
+    color: #f5f
+}
+
+.§e {
+    color: #ff5
+}
+
+.§f {
+    color: #fff
+}
+
+.§l {
+    font-weight: bold
+}
+
+.§m {
+    text-decoration: line-through
+}
+
+.§n {
+    text-decoration: underline
+}
+
+.§o {
+    font-style: italic
+}
+
+textarea {
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/*
+ * soultpl
+ */
+
+/* heading */
+.soultpl-heading-placeholder {
+    height: 2rem;
+}
+
+.soultpl-heading-box {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 2rem;
+    background: var(--soultpl-back-color);
+    border-bottom: 1px solid var(--soultpl-fore-color);
+    z-index: 999;
+    padding: 0 4px;
+}
+
+@media print {
+    .soultpl-heading-box {
+        position: absolute;
+    }
+}
+
+.soultpl-heading-text {
+    margin: 0;
+    line-height: 2rem;
+    font-size: 1.5rem;
+}
+
+/* footer */
+.soultpl-footer-box {
+    margin-top: 1.25rem;
+    width: 100%;
+    text-align: center;
+    background: var(--soultpl-back-color);
+    border: 1px solid var(--soultpl-fore-color);
+}
+
+/* back to top */
+.soultpl-backtotop-button {
+    width: 3.125rem;
+    height: 3.125rem;
+    font-size: 1.875rem;
+    text-align: center;
+    line-height: 3.125rem;
+    position: fixed;
+    right: 1rem;
+    bottom: 4rem;
+    z-index: 998;
+}
+</style>
+<style>
+:root{
+--soultpl-back-color:#101010;
+--soultpl-fore-color:#F0F0F0;
+--soultpl-back-color-dim:#202020;
+--soultpl-back-color-dim2:#404040;
+--soultpl-link-color:#8080F0;
+--soultpl-link-visited-color:#C080F0;
+}
+</style>
+
+<title>舞线练习场 - 真魂下载站</title>
+<script>// lnnjslib/19101421.js
+/*
+dateformat.js
+*/
+var LNN_DATE_FORMAT={
+yyyy:"zeroizeLNN(this.getFullYear(),4)",
+yy:"zeroizeLNN(this.getFullYear())",
+M:"this.getMonth()+1",
+MM:"zeroizeLNN(this.getMonth()+1)",
+MMM:"['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][this.getMonth()]",
+MMMM:"['January','February','March','April','May','June','July','August','September','October','November','December'][this.getMonth()]",
+d:"this.getDate()",
+dd:"zeroizeLNN(this.getDate())",
+ddd:"['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][this.getDay()]",
+dddd:"['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][this.getDay()]",
+h:"this.getHours()%12||12",
+hh:"zeroizeLNN(this.getHours()%12||12)",
+H:"this.getHours()",
+HH:"zeroizeLNN(this.getHours())",
+t:"this.getHours()<12?'a':'p'",
+tt:"this.getHours()<12?'am':'pm'",
+T:"this.getHours()<12?'A':'P'",
+TT:"this.getHours()<12?'AM':'PM'",
+m:"this.getMinutes()",
+mm:"zeroizeLNN(this.getMinutes())",
+s:"this.getSeconds()",
+ss:"zeroizeLNN(this.getSeconds())",
+l:"this.getMilliseconds()",
+L:"zeroizeLNN(this.getMilliseconds(),3).substr(0,1)",
+LL:"zeroizeLNN(this.getMilliseconds(),3).substr(0,2)",
+LLL:"zeroizeLNN(this.getMilliseconds(),3).substr(0,3)",
+ZZ:"zeroizeLNN(-Math.floor(this.getTimezoneOffset()/60),false,true)",
+ZZZ:"zeroizeLNN(-Math.floor(this.getTimezoneOffset()/60),2,true)",
+zz:"zeroizeLNN(-this.getTimezoneOffset()%60)"
+},
+zeroizeLNN=function(num,len,sign){
+if(!len)len=2;
+num=Math.floor(num);
+var str=Math.abs(num).toString();
+if(len!==false){
+if(str.length>len)str=str.substr(-len);
+else while(str.length<len)str="0"+str;
+}
+if(sign)str=(num<0?"-":"+")+str;
+return str;
+};
+
+Date.prototype.formatLNN=function(fmt){
+var c=0,s="",ls="",ss="",out="";
+for(;c<=fmt.length;c++){
+ls=s,s=fmt[c];
+if(s=="\\")c++;
+else if(s==ls||!ss){
+ss+=s;
+continue;
+}
+if(ss in LNN_DATE_FORMAT)out+=eval(LNN_DATE_FORMAT[ss]);
+else out+=ss;
+if(s=="\\")out+=fmt[c],ss="";
+else ss=s;
+}
+return out;
+}
+
+
+
+
+/*
+getelement.js
+*/
+function getElementsLNN(){return Array.prototype.map.call(document.querySelectorAll("*[id]"),function(e){return window[e.id]=e})}
+function $$$(id){return window[id]=document.getElementById(id)}
+function $$(arg){return Array.prototype.map.call(typeof arg.length=="number"?arg:arguments,$$$)}
+
+
+
+
+
+/*
+random.js
+*/
+function randLNN(){
+return Math.random();
+}
+function randBetweenLNN(from,to){
+return Math.floor(Math.random()*(to-from))+from;
+}
+
+Object.defineProperty(Array.prototype,"randItemLNN",{value:function(){
+return this[randBetweenLNN(0,this.length)];
+},enumerable: false});
+
+Object.defineProperty(Array.prototype,"randSortLNN",{value:function(){
+var arr=[],i=0;
+for(;i<this.length;i++){
+arr.push({r:randLNN(),v:this[i]});
+}
+arr.sort(Array.prototype.randSortLNN.sortFunc);
+for(i=0;i<this.length;i++){
+this[i]=arr[i].v;
+}
+},enumerable: false});
+
+Array.prototype.randSortLNN.sortFunc=function(a,b){
+return a.r-b.r;
+};
+
+
+
+
+/*
+xhrutil.js
+*/
+var XHRUtilLNN={
+get:function(url,query,noCache,callback){
+if(callback===null)callback=Function.prototype;
+var xhr=new XMLHttpRequest();
+if(query)url+=(url.match("\\?")?"&":"?")+query;
+if(noCache)url+=(url.match("\\?")?"&":"?")+"xhrutillnntime="+Date.now();
+var hcb=typeof callback=="function";
+xhr.open("get",url,hcb);
+if(hcb){
+xhr.onload=function(event){
+callback(true,event,xhr);
+},
+xhr.onerror=function(event){
+callback(false,event,xhr);
+};
+}
+xhr.send();
+return xhr;
+},
+post:function(url,data,callback){
+if(callback===null)callback=Function.prototype;
+var xhr=new XMLHttpRequest(),
+hcb=typeof callback=="function",d=null;
+if(data instanceof FormData)d=data;
+else{
+d=new FormData();
+for(var i in data){
+d.append(i,data[i]);
+}
+}
+xhr.open("post",url,hcb);
+if(hcb){
+xhr.onload=function(event){
+callback(true,event,xhr);
+},
+xhr.onerror=function(event){
+callback(false,event,xhr);
+};
+}
+xhr.send(d);
+return xhr;
+}
+};
+</script>
+<style>
+.soultpl-heading-text{
+transition:background-color 0.5s;
+}
+#noteBar{
+position:relative;
+height:50px;
+box-sizing:content-box;
+overflow:hidden;
+}
+#offsetDiv{
+position:absolute;
+padding:0;
+margin:0;
+left:30%;
+}
+#notes{
+position:absolute;
+}
+.note{
+position:absolute;
+border:5px solid white;
+border-radius:25px;
+height:50px;
+width:50px;
+box-sizing:border-box;
+padding:0;
+line-height:40px;
+text-align:center;
+font-size:16px;
+color:black;
+background:#40FFC0;
+cursor:pointer;
+z-index:1;
+}
+.note.note-selected{
+background:#C040FF;
+}
+#notePointer{
+height:50px;
+width:50px;
+left:-5px;
+top:-5px;
+padding:0;
+box-sizing:content-box;
+border-radius:30px;
+border:5px solid white;
+position:absolute;
+}
+#audio{
+width:100%;
+}
+#canvas{
+max-width:100%;
+max-height:50%;
+}
+textarea{
+transition:width 0.5s,height 0.5s;
+width:6rem;
+height:3rem;
+}
+textarea:focus {
+width:100%;
+height:10rem;
+}
+
+option,optgroup{
+color:black;
+background-color:white;
+}
+</style>
+</head>
+<body>
+<div class="soultpl-heading-box"><div class="soultpl-heading-text">舞线练习场 v2.2.3</div></div>
+<div class="soultpl-heading-placeholder"></div>
+<section id="noteBar" class="soulbox">
+<div id="offsetDiv">
+<div id="notes"></div>
+<div id="notePointer"></div>
+</div>
+</section>
+<audio id="audio" controls></audio>
+<section>
+<div>
+<button id="finetuneSwitchButton">模式 微调音乐进度</small></button>
+<button id="finetuneLeftButton"><<</button>
+<button id="finetuneRightButton">>></button>
+</div>
+<div>
+<button id="deleteButton">删除选中音符</button>
+<button id="muteBeatButton">打击音效 关</button>
+<button id="swapDirButton">开始方向 上</button>
+<button id="slantEndButton">结尾斜走 关</button>
+<button id="speedButton">倍速 1.0X</button>
+</div>
+</section>
+<canvas id="canvas" width=500 height=500 class="soulbox"></canvas>
+
+<section>
+<label>打开谱面
+<input type="file" id="readFile">
+</label><button id="saveButton">保存谱面</button><button id="discardButton">关闭谱面</button>
+</section>
+
+<section>
+<label>音乐
+<select id="selectMusic">
+<option value="LOCAL">选择本地音频…</option>
+<option value="URL">输入音频网址…</option>
+<optgroup label="本站音频">
+</optgroup>
+</select>
+</label>
+<input type="url" id="audioUrl" style="display:none">
+<input type="file" id="audioFile">
+</section>
+
+<section style="display:none">
+<textarea onblur="try{alert(eval(this.value))}catch(error){alert(error)}" placeholder=Javascript调试框></textarea>
+</section>
+
+<a href="history.md" target="_blank">版本历史记录</a>
+
+<script>
+
+function update(){
+ var lastIndex=-1;
+
+ noteArray.forEach(function(note,index){
+  var element=notes.querySelector('.note[data-index="'+index+'"]'),
+  delta=Math.abs(note-time);
+
+  if(delta>5&&element){
+   element.parentNode.removeChild(element);
+   return;
+  }
+
+  if(delta<=5&&!element){
+   element=document.createElement('div');
+
+   element.classList.add('note');
+   element.dataset.index=index;
+   element.dataset.note=note;
+   element.onclick=noteOnclick;
+   element.appendChild(document.createTextNode(""));
+   notes.appendChild(element);
+
+  }
+  if(!element)return;
+
+  var text=index!==noteArray.length-1||!slantEnd?index+1:"不点";
+  if(element.firstChild.nodeValue!=text)element.firstChild.nodeValue=text;
+
+  if(selectedIndex===index)
+   element.classList.add('note-selected');
+  else
+   element.classList.remove('note-selected');
+
+  if(element.dataset.note!==note){
+   element.style.left=note*200+"px";
+   element.dataset.note=note;
+  }
+
+  if(note<time)
+   lastIndex=index;
+ });
+
+ var index=noteArray.length,
+ element=notes.querySelector('.note[data-index="'+index+++'"]');
+ if(element)
+  do{
+   notes.removeChild(element);
+  }
+  while(element=notes.querySelector('.note[data-index="'+index+++'"]'));
+
+ notes.style.left=time*-200+"px";
+
+}
+
+
+function drawLine(){
+ canvasCtx.clearRect(-3,-3,6,6);
+ var index=insertIndex,x=0,y=0;
+ canvasCtx.beginPath();
+ canvasCtx.moveTo(0,0);
+ if(index===0){
+  if(swapDirections)
+   x-=time;
+  else
+   y+=time;
+  canvasCtx.lineTo(x,y);
+ }
+ else{
+  if(slantEnd&&index===noteArray.length){
+   var temp=(time-noteArray[--index])/Math.SQRT2;
+
+   x-=temp;
+   y+=temp;
+   canvasCtx.lineTo(x,y);
+  }
+  else{
+   if(Boolean(index%2)!=swapDirections)
+    x-=time-noteArray[--index];
+   else
+    y+=time-noteArray[--index];
+   canvasCtx.lineTo(x,y);
+  }
+  if(index>0&&x>-3&&y<3)
+   do{
+    if(Boolean(index%2)!=swapDirections)
+     x-=noteArray[index]-noteArray[--index];
+    else
+     y+=noteArray[index]-noteArray[--index];
+   canvasCtx.lineTo(x,y);
+   }
+   while(index>0&&x>-3&&y<3);
+  if(index===0&&x>-3&&y<3){
+   if(swapDirections)
+    x-=noteArray[0];
+   else
+    y+=noteArray[0];
+   canvasCtx.lineTo(x,y);
+  }
+ }
+ canvasCtx.stroke();
+}
+
+
+function tick(){
+
+    try{
+
+ if(finetuneType&&!audio.paused){
+  finetuneType=false;
+  finetuneSwitchButton.innerHTML="模式 微调音乐进度";
+ }
+
+ time=audio.currentTime;
+ insertIndex=noteArray.length;
+ noteArray.some(function(note,index){
+  if(note>time){
+   insertIndex=index;
+   return true;
+  }
+  return false;
+ });
+ if(!audio.paused)
+  selectedIndex=insertIndex;
+ if(selectedIndex>=noteArray.length)
+  selectedIndex=noteArray.length-1;
+ if(lastUpdateInsertIndex!==insertIndex&&!(audio.paused||beatMuted))
+  beat.currentTime=0,beat.play();
+ lastUpdateInsertIndex=insertIndex;
+
+ now=Date.now(),deltaNow=now-justNow,justNow=now;
+ if(finetuneSpeed){
+  audio.pause();
+  finetuneSpeed+=finetuneSpeed<0?-1:1;
+  if(finetuneType)
+   noteArray[selectedIndex]+=finetuneSpeed*deltaNow/2048;
+  else
+   audio.currentTime+=finetuneSpeed*deltaNow/1024;
+ }
+
+ beat.volume=audio.volume;
+
+ update();
+ drawLine();
+
+    }catch(error){ }finally{
+
+ requestAnimationFrame(tick);
+
+    }
+}
+
+function tip(text,autoReset){
+ headingText.innerHTML=text;
+ clearTimeout(headingTextResetId);
+ if(autoReset)headingTextResetId=setTimeout(resetTip,2000);
+ headingText.style.background="#108040";
+}
+
+function resetTip(){
+ headingText.innerHTML=headingTextString;
+ headingText.style.background="";
+}
+
+
+
+
+getElementsLNN();
+var canvasCtx=canvas.getContext("2d"),beat=new Audio("beat.wav"),beatMuted=true;
+var noteArray=[],slantEnd=false,swapDirections=false,filename="新建舞线谱面"+Date.now().toString().slice(0,-2);
+var time=0,now=Date.now(),justNow=now,deltaNow=0,
+insertIndex=0,lastUpdateInsertIndex=0,
+selectedIndex=0,finetuneSpeed=0,
+lastUpdateNoteCount=0,finetuneType=false;
+var headingText=document.querySelector(".soultpl-heading-text"),
+headingTextString=headingText.innerHTML,headingTextResetId=NaN;
+
+
+
+canvasCtx.translate(250,250),
+canvasCtx.scale(400,400),
+canvasCtx.lineCap="square",
+canvasCtx.lineWidth=.05,
+canvasCtx.strokeStyle='#F0F0F0';
+
+
+
+
+var noteOnclick=function(event){
+ if(audio.paused)
+  selectedIndex=Number(this.dataset.index);
+}
+
+audio.onerror=function(){
+ tip("音频加载失败……",true);
+};
+var firstLoad=true;
+audio.onloadstart=function(){
+ if(firstLoad)return firstLoad=false;
+ tip("音频开始加载……",true);
+};
+audio.onplaying=function(){
+ tip("音频开始播放……",true);
+};
+audio.onpause=function(){
+ tip("音频暂停播放……",true);
+};
+audio.onwaiting=function(){
+ tip("音频正在缓冲……");
+};
+
+canvas.onclick=function(event){
+ event.preventDefault();
+ noteArray.splice(insertIndex,0,time);
+ if(!beatMuted)
+  beat.currentTime=0,beat.play();
+
+ if(!window.onbeforeunload)
+  window.onbeforeunload=function(event){
+   event.preventDefault();
+  }
+};
+canvas.ontouchstart=function(){
+ canvas.ontouchstart=canvas.onclick;
+ canvas.onclick=null;
+ canvas.ontouchstart();
+};
+
+finetuneSwitchButton.onclick=function(){
+ finetuneType=!finetuneType;
+ finetuneSwitchButton.innerHTML=finetuneType?"模式 微调选中打击":"模式 微调音乐进度";
+};
+finetuneLeftButton.onmousedown=function(event){
+ event.preventDefault();
+ finetuneSpeed-=2;
+};
+finetuneLeftButton.ontouchstart=function(){
+ finetuneLeftButton.ontouchstart=finetuneLeftButton.onmousedown;
+ finetuneLeftButton.onmousedown=null;
+ finetuneLeftButton.ontouchstart();
+};
+
+finetuneRightButton.onmousedown=function(event){
+event.preventDefault();
+finetuneSpeed+=2;
+};
+finetuneRightButton.ontouchstart=function(){
+ finetuneRightButton.ontouchstart=finetuneRightButton.onmousedown;
+ finetuneRightButton.onmousedown=null;
+ finetuneRightButton.ontouchstart();
+};
+
+finetuneLeftButton.onmouseup=finetuneRightButton.onmouseup=function(event){
+ event.preventDefault();
+ finetuneSpeed=0;
+ if(finetuneType){
+  var selectedNote=noteArray[selectedIndex];
+  noteArray.sort(function(a,b){return a-b});
+  selectedIndex=noteArray.indexOf(selectedNote);
+ }
+};
+finetuneLeftButton.ontouchend=function(){
+ finetuneLeftButton.ontouchend=finetuneLeftButton.onmouseup;
+ finetuneLeftButton.onmouseup=null;
+ finetuneLeftButton.ontouchend();
+};
+finetuneRightButton.ontouchend=function(){
+ finetuneRightButton.ontouchend=finetuneRightButton.onmouseup;
+ finetuneRightButton.onmouseup=null;
+ finetuneRightButton.ontouchend();
+};
+deleteButton.onclick=function(){
+ noteArray.splice(selectedIndex,1);
+};
+muteBeatButton.onclick=function(){
+ beatMuted=!beatMuted;
+ muteBeatButton.innerHTML=beatMuted?"打击音效 关":"打击音效 开";
+};
+swapDirButton.onclick=function(){
+ swapDirections=!swapDirections;
+ swapDirButton.innerHTML=swapDirections?"开始方向 右":"开始方向 上";
+};
+slantEndButton.onclick=function(){
+ slantEnd=!slantEnd;
+ slantEndButton.innerHTML=slantEnd?"结尾斜走 开":"结尾斜走 关";
+};
+speedButton.onclick=function(){
+ var speed=parseFloat(prompt("输入速度（1是原速）",audio.playbackRate));
+ if(speed>0)audio.playbackRate=speed;
+ speedButton.innerHTML="倍速 "+speed+"X";
+};
+
+saveButton.onclick=function(){
+ var p=prompt("命名谱面",filename);
+ if(p===null)return;
+ else if(p==="")return alert("不能为空");
+ filename=p;
+ var blob=new Blob([JSON.stringify({
+  noteArray:noteArray,
+  slantEnd:slantEnd,
+  swapDirections:swapDirections,
+  audioSrc:audio.src,
+  filename:filename
+ })],{
+  type:'application/json'
+ }),
+ url=URL.createObjectURL(blob);
+ a=document.createElement('a'),
+ a.download=p+".souldldr",
+ a.href=URL.createObjectURL(blob),
+ a.click();
+};
+
+readFile.onchange=function(){
+ var fileReader=new FileReader;
+ fileReader.onload=function(){
+  try{
+   var object=JSON.parse(fileReader.result);
+  }
+  catch(error){
+   tip("无法读取谱面…",true);
+   throw error;
+  }
+  noteArray=object.noteArray;
+  slantEnd=Boolean(object.slantEnd);  swapDirections=Boolean(object.swapDirections);
+  filename=String(object.filename)||filename;
+  audio.src=object.audioSrc;
+  noteArray.sort((a,b)=>a-b);
+ swapDirButton.innerHTML=swapDirections?"开始方向 右":"开始方向 上";
+  slantEndButton.innerHTML=slantEnd?"结尾斜走 开":"结尾斜走 关";
+ };
+ fileReader.readAsText(readFile.files[0]);
+};
+
+discardButton.onclick=function(){
+ if(confirm('确定要关闭当前编辑的谱面吗？\n确定要关闭当前编辑的谱面吗？\n确定要关闭当前编辑的谱面吗？\n确定要关闭当前编辑的谱面吗？\n确定要关闭当前编辑的谱面吗？\n确定要关闭当前编辑的谱面吗？\n确定要关闭当前编辑的谱面吗？\n确定要关闭当前编辑的谱面吗？\n确定要关闭当前编辑的谱面吗？\n确定要关闭当前编辑的谱面吗？\n（本站传统，重要的问题说十遍）'))
+  noteArray=[];
+};
+
+selectMusic.onchange=function(){
+ switch(selectMusic.value){
+  case 'URL':
+   audioUrl.style.display="";
+   audioFile.style.display="none";
+  break;
+  case 'LOCAL':
+   audioUrl.style.display="none";
+   audioFile.style.display="";
+  break;
+  default:
+   audioUrl.style.display="none";
+   audioFile.style.display="none";
+   audio.src=selectMusic.value;
+ }
+};
+audioUrl.onchange=function(){
+ audio.src=audioUrl.value;
+};
+audioFile.onchange=function(){
+ var fileReader=new FileReader;
+ fileReader.onload=function(){
+  audio.src=fileReader.result;
+ };
+ fileReader.readAsDataURL(audioFile.files[0]);
+};
+
+
+tick();
+
+
+/* load file */
+/*
+tip("下载谱面文件…");
+XHRUtilLNN.get(<?php echo json_encode($_GET['load']) ?>,null,false,function(succeeded,event,xhr){
+if(!succeeded)return tip("下载谱面失败…",true);
+else tip("下载谱面完成…",true);
+try{
+ var object=JSON.parse(xhr.responseText);
+}
+catch(error){
+ tip("无法读取谱面…",true);
+ throw error;
+}
+noteArray=object.noteArray;
+slantEnd=Boolean(object.slantEnd);
+swapDirections=Boolean(object.swapDirections);
+filename=String(object.filename)||filaname;
+audio.src=object.audioSrc;
+noteArray.sort((a,b)=>a-b);
+ swapDirButton.innerHTML=swapDirections?"开始方向 右":"开始方向 上";
+slantEndButton.innerHTML=slantEnd?"结尾斜走 开":"结尾斜走 关";
+});
+*/
+</script>
+</body>
+</html>
