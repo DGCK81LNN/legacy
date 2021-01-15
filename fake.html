@@ -1,0 +1,39 @@
+<meta charset="UTF-8"/>
+<link rel="stylesheet" href="/legacy/style.css" type="text/css" />
+<link rel="shortcut icon" href="/favicon.png"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+<title>小罗表情生成器之“我有可能…”</title>
+<canvas id="canvas" height="198" width="206" style="display:none"></canvas>
+<img id="img"/>
+<br>
+<button onclick="main()">点击生成新表情</button>
+<script>
+if(!canvas.getContext){
+alert("您的浏览器弱爆了！");
+throw new Error("Canvas Not Supported");
+}
+var C = canvas.getContext("2d"),
+    s="感觉整个人生都是假的";
+function main(){
+var fontSize=20,
+    image=new Image();
+s=prompt("输入文本",s);
+if(s===null)return;
+C.fillStyle="white";
+C.fillRect(0,0,206,198);
+C.fillStyle="black";
+C.font=fontSize+"px Helvetica";
+C.textAlign="center";
+C.textBaseline="middle";
+while(C.measureText(s).width > 206){
+fontSize--;
+C.font=fontSize+"px Helvetica";
+}
+C.fillText(s,103,185);
+image.onload=function(){
+C.drawImage(image,0,0);
+img.src=canvas.toDataURL();
+}
+image.src="fake.jpg";
+}
+</script>
