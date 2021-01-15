@@ -1,12 +1,22 @@
 <!doctype html>
+<!--
+This page uses soultpl.php webpage template.
+soultpl.php by DGCK81LNN&InnocentSouls
+For contact info please visit homepage: http://3luo.jedoo.com/
+-->
 <html>
 <head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no">
-<link rel=stylesheet href="/legacy/css3/basic.css">
-<link rel=stylesheet href="/legacy/css3/night.css">
+<!-- soultpl auto <head> begin -->
 <title>舞线练习场 - 真魂下载站</title>
-<script  src="/legacy/lnnjslib/19101421.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,max-scale=1,user-scalable=no">
+<link rel="stylesheet" href="/legacy/css3/basic.css"><link rel="stylesheet" media="screen" href="/legacy/css3/night.css">
+<link rel="icon" href="/legacy/favicon_190302.png">
+<link rel="shortcut icon" href="/legacy/favicon_190302.png">
+<link rel="apple-touch-icon" href="/legacy/favicon_190302.png" sizes="128x128">
+<style media="screen">#printMsg{display:none}</style>
+<!-- soultpl auto <head> end -->
+<script src="/legacy/lnnjslib/19101421.js"></script>
 <style>
 .soultpl-heading-text{
 transition:background-color 0.5s;
@@ -80,8 +90,11 @@ background-color:white;
 </style>
 </head>
 <body>
-<div class="soultpl-heading-box"><div class="soultpl-heading-text">舞线练习场 v2.2.3</div></div>
-<div class="soultpl-heading-placeholder"></div>
+
+<!-- soultpl auto heading begin -->
+<div class="soultpl-heading-placeholder"> </div>
+<header class="soultpl-heading-box"><div class="soultpl-heading-text">舞线练习场 v2.2.3</div></header>
+<!-- soultpl auto heading end -->
 <section id="noteBar" class="soulbox">
 <div id="offsetDiv">
 <div id="notes"></div>
@@ -117,7 +130,7 @@ background-color:white;
 <option value="LOCAL">选择本地音频…</option>
 <option value="URL">输入音频网址…</option>
 <optgroup label="本站音频">
-<option value="dl_3rd_anniversary.m4a">DL三周年混曲 - 鼓瑟吹笙LB</option>
+<option value="dl_3rd_anniversary.m4a">舞线三周年泪目混曲 - 鼓瑟吹笙LB</audio>
 </optgroup>
 </select>
 </label>
@@ -502,29 +515,11 @@ audioFile.onchange=function(){
 tick();
 
 
-/* load file */
-/*
-tip("下载谱面文件…");
-XHRUtilLNN.get(<?php echo json_encode($_GET['load']) ?>,null,false,function(succeeded,event,xhr){
-if(!succeeded)return tip("下载谱面失败…",true);
-else tip("下载谱面完成…",true);
-try{
- var object=JSON.parse(xhr.responseText);
-}
-catch(error){
- tip("无法读取谱面…",true);
- throw error;
-}
-noteArray=object.noteArray;
-slantEnd=Boolean(object.slantEnd);
-swapDirections=Boolean(object.swapDirections);
-filename=String(object.filename)||filaname;
-audio.src=object.audioSrc;
-noteArray.sort((a,b)=>a-b);
- swapDirButton.innerHTML=swapDirections?"开始方向 右":"开始方向 上";
-slantEndButton.innerHTML=slantEnd?"结尾斜走 开":"结尾斜走 关";
-});
-*/
+
 </script>
+<!-- soultpl auto footer begin -->
+<div class="soultpl-footer-box"><div class="soultpl-footer-text">soultpl.php</div></div>
+<!-- soultpl auto footer end -->
+<p id="printMsg">系统检测到您正在打印此页面。页面配色已自动更改。</p>
 </body>
 </html>
