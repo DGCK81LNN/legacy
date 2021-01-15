@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/legacy/style.css">
+<title>炸毁市五所</title><a href="javascript:;" onclick="location.replace('.')" style="text-decoration:none">＜返回</a>
+<hr style="margin:0">
+<h3>你有一个烧杯</h3><button onclick="w(event)">向烧杯里加水</button><button onclick="s(event)">向烧杯里加铯</button><br><button id="bt"
+    onclick="t(event)">把烧杯拿去市五所</button><br><button onclick="location.reload()">重新开始</button>
+<p><small>注：<ruby>铯<rp>(</rp>
+            <rt>sè</rt>
+            <rp>)</rp>
+        </ruby>遇水会产生爆炸</small><br><small>炸毁市五所 v2</small></p>
+<script>
+    var a = "pong～～烧杯炸了",
+        c = 0;
+
+    function w(e) {
+        e.target.innerHTML = "已向烧杯里加水";
+        e.target.disabled = true;
+        c |= 1;
+        setTimeout(function () {
+            ch()
+        }, 10)
+    }
+
+    function s(e) {
+        e.target.innerHTML = "已向烧杯里加铯";
+        e.target.disabled = true;
+        c |= 2;
+        setTimeout(function () {
+            ch()
+        }, 10)
+    }
+
+    function t(e) {
+        e.target.innerHTML = "已把烧杯拿去市五所";
+        e.target.disabled = true;
+        c |= 4
+    }
+
+    function ch() {
+        if (c & 1 && c & 2) {
+            if (c & 4) {
+                alert("pong～～市五所没了")
+            } else {
+                alert("pong～～烧杯炸了");
+            }
+            document.getElementById("bt").disabled = true
+        }
+    }
+</script>
